@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Responsive website template for documentations</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/iranian-sans" type="text/css"/>
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding" style="direction: rtl">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">مستندات </span><span class="text-bold">شمعدونی</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title">خام API</h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner" style="direction: rtl">
+                            <div class="callout-block callout-warning">
+                                <div class="icon-holder">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </div><!--//icon-holder-->
+                                <div class="content">
+                                    <h4 class="callout-title">توجه</h4>
+                                    <p>از آنجایی که API شمعدونی یک API چند مرحله ای است و هم در فرانت اند و هم در بک اند فروشگاه شما نیاز هست که پیاده سازی بشه لطفا تا حد ممکن از از پلاگین های ما استفاده کنید. در صورتی که سیستم شما در میان پلاگین های ما موجود نبود میتوانید به support@shamdooni.org ایمیل بزنید تا
+                                         تیم فنی ما شما را راهنمایی کنند.</p>
+                                </div><!--//content-->
+                            </div>
+                            <section id="intro-section" class="doc-section">
+                                <h2 class="section-title">مقدمه</h2>
+                                <div class="section-block">
+                                    <p>
+                                        شمعدونی از ۳ قسمت کلی تشکیل شده است: 
+                                    </p>
+                                    <ol>
+                                        <li>iframe شمعدونی</li>
+                                        <li>RESTish API شمعدونی</li>
+                                        <li>نشان اعتماد شمعدونی</li>
+                                    </ol>
+                                    قسمت اول و دوم به طور تنگاتنگ با هم در ارتباطند و قسمت سوم که ساده ترین قسمت پیاده سازی میباشد ارتباط تنگانگی با دو قسمت دیگر ندارد. در ادامه به توضیح هر بخش میپردازیم.
+                                </div>
+                                <div class="callout-block callout-info">
+                                    <div class="icon-holder">
+                                        <i class="fa fa-info-circle"></i>
+                                    </div><!--//icon-holder-->
+                                    <div class="content">
+                                        <h4 class="callout-title" >RESTful یا RESTish؟</h4>
+                                        <p>
+                                            استاندار REST یک استاندارد ساخت HTTP API برای اشتراک گذاری منابع است. RESTful API به API ای گفته میشود که تا جای ممکن از استاندارد REST پیروی کند. حال API شمعدونی در مورد اشتراک گذاری منابع نیست و یک API عملگرا میباشد، اما ما تلاش کردیم تا حد ممکن از استاندارد REST پیروی کنیم به خاطر همین به آن RESTish API میگوییم.
+                                        </p>
+                                    </div><!--//content-->
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="second-section" class="doc-section">
+                                <h2 class="section-title"> کلیات کارکرد</h2>
+                                <div id="step1"  class="section-block">
+                                    <p>
+                                        در هنگامی که در فروشگاه کاربر به صفحه checkout میرسد یک درخواست به API شمعدونی فرستاده میشود تا یک تراکنش ساخته شود. در این درخواست یک شناسه تراکنش ساخته میشود. در این صفحه در آخر فاکتور iframe شمعدونی
+                                        قرار گرفته میشود که کاربر در صورت تیک زدن در iframe یک درخواست دیگر به API شمعدونی میفرستد و مبلغ رند شده در پاسخ دریافت میشود. در همین هنگام یک event برای صفحه checkout فرستاده میشود تا فاکتور را از طریق AJAX بروزرسانی کند. در مرحله بعد، بعد از پرداخت موفقیت آمیز یک درخواست دیگر به API شمعدونی زده میشود و تراکنش را تایید میکند.
+                                        <br>
+                                        نشان اعتماد شمعدونی هم به سادگی قابل اضافه شدن میباشد و شما میتوانید در فوتر یا ساید بار فروشگاه خودتان قرار دهید.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            
+                            <section id="code-section" class="doc-section">
+                                <h2 class="section-title">پیاده سازی</h2>
+                                <div id="step1"  class="section-block">
+                                    <h3 class="block-title">مرحله اول</h3>
+                                    <p>
+                                        حال باید iframe شمعدونی را در زیر فاکتور خود قرار دهید
+                                    </p>
+                                        
+                                    <div id="html" >
+                                        <div class="code-block">
+                                            <pre><code class="language-markup">&lt;iframe src="https://www.shamdooni.org/iframe/?apilink=YOUR_API_LINK&session_key=SESSION_KEY&checked=TRUE_OR_FALSE" width="400px" height="200px">&lt;/iframe></code></pre>
+                                        </div><!--//code-block-->
+                                    </div><!--//section-block-->
+                                    <p>
+                                        داده های YOUR_API_LINK ، SESSION_KEY و TRUE_OR_FALSE داده هایی هستند که شما باید پر کنید و در مراحل بعد توضیح داده میشود.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="step2"  class="section-block">
+                                        <h3 class="block-title">مرحله دوم</h3>
+                                        <p>
+                                            در این مرحله باید شما یک table (در صورتی که از دیتابیس های رابطه ای استفاده میکنید) درست کنید 
+                                            <br>
+                                            ستون های پیشنهادی ما برای این جدول عبارتند از:
+                                        </p>
+                                        <table class="table table-bordered" >
+                                            <thead>
+                                                <tr>
+                                                    <th>توضیحات</th>
+                                                    <th>نام فیلد</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">معمولا در سیستم های فروشگاهی همچین فیلدی برای پیدا کردن سبد موجود است.</th>
+                                                    <td>session_key</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">شناسه سفارش که معمولا بعد از پرداخت به دست می آید.</th>
+                                                    <td>order_id</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">رند شده یا نه</th>
+                                                    <td>rounded</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">قیمت نهایی فاکتور</th>
+                                                    <td>final_amount</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">مقدار رند شده</th>
+                                                    <td>round_amount</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">مبلغ پرداختی قبل از رند شدن</th>
+                                                    <td>amount</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">شناسه تراکنش شمعدونی</th>
+                                                    <td>shamdooni_transaction_id</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">تمام شدگی تراکنش</th>
+                                                    <td>ended</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div id="html" >
+                                            <div class="code-block">
+                                                <pre><code class="language-markup">&lt;iframe src="https://www.shamdooni.org/iframe/?apilink=YOUR_API_LINK&session_key=SESSION_KEY&checked=TRUE_OR_FALSE" width="400px" height="200px">&lt;/iframe></code></pre>
+                                            </div><!--//code-block-->
+                                        </div><!--//section-block-->
+                                        <p>
+                                            داده های YOUR_API_LINK ، SESSION_KEY و TRUE_OR_FALSE داده هایی هستند که شما باید پر کنید و در مراحل بعد توضیح داده میشود.
+                                        </p>
+                                    </div><!--//section-block-->
+    
+                                    <div id="step3"  class="section-block">
+                                            <h3 class="block-title">مرحله سوم</h3>
+                                            <p>
+                                                در هنگامی که صفحه checkout  لود میشود یک درخواست http با متد POST به آدرس زیر باید فرستاده شود.
+                                            </p>
+                                                
+                                            <div id="html" class="section-block">
+                                                <div class="code-block">
+                                                    <pre><code class="language-markup"><div>https://www.shamdooni.org/api/rounder/v1</div></code></pre>
+                                                </div><!--//code-block-->
+                                            </div><!--//section-block-->
+                                            <div class="table-responsive">
+                                                <p>داده های درخواست:</p>
+                                                <table class="table table-bordered" >
+                                                    <thead>
+                                                        <tr>
+                                                            <th>توضیحات</th>
+                                                            <th>نام فیلد</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">API Key دریافتی شما از شمعدونی.</th>
+                                                            <td>apikey</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">مبلغ فاکتور کاربر</th>
+                                                            <td>amount</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">شماره فاکتور (اختیاری)</th>
+                                                            <td>factorId</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="code-block">
+                                                    <h6>داده های دریافتی:</h6>
+                                                    <p>در صورتی که اطلاعات ارسالی صحیح باشد:</p>
+                                                    <div class="code-block">                                                            
+                                                    <pre><code class="language-javascript">{
+            status: 201,
+            message: "تراکنش جدید با موفقیت ساخته شد.",
+            transId: شناسه تراکنش,
+            amount: مبلغ تراکنش
+        }</code></pre>      </div>                              
+                
+                                                    <p>در صورت بروز خطا:</p><div class="code-block">
+                                                    <pre><code class="language-javascript">{
+            status: 400,
+            message: "پارامتر های داده شده اشتباه است."
+        }</code></pre>   </div>
+                                            <p>
+                                                حال باید داده های مناسب را در جدول خود در دیتابیس بریزید.
+                                            </p>
+                                </div><!--//section-block-->
+                                <div id="step4"  class="section-block">
+                                    <h3 class="block-title">مرحله چهارم</h3>
+                                    <p>
+                                        هنگامی که کاربر بر روی تیک iframe کلیک میکند iframe یک درخواست پست به آدرسی که در پارامتر api_link به آن داده شده میفرستد و در آن session_key را به عنوان پارامتر url بعد از apikey و مقدار چک را به صورت body درخواست پس میدهد.
+                                    </p>
+                                    <p>
+                                        در این مرحله کافیست تا شما یک end point درست کنید و آدرس آن را در پارامتر های iframe وارد کنید تا بتواند پاسخ هارا دریافت کند و در دیتابیس اضافه کند. در این end point شما باید به آدرس زیر با متد PUT در خواست http بزنید تا بتوانید اطلاعات مرتبط با رند شدن را پیدا کنید و در دیتابیس ذخیره کنید. تنها پارامتر مورد نیاز در این درخواست transId میباشد.
+                                    </p>
+                                        <div class="code-block">
+                                            <pre><code class="language-markup"><div>https://www.shamdooni.org/api/rounder/v1/:transId</div></code></pre>
+                                        </div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="step5"  class="section-block">
+                                    <h3 class="block-title">مرحله پنجم</h3>
+                                    <p>
+                                       هنگامی که کاربر روی دکمه رند کردن کلیک میکند iframe پس از گرفتن پاسخ از سرور شما یک event به صفحه ای که iframe در آن قرار گرفته شده میفرستد که برای آگاهی از این رویداد باید کد زیر در صفحه checkout اجرا شود.
+                                    </p>
+                                    <div class="code-block">                                            
+                                    <pre><code class="language-javascript">window.addEventListener("message", function(event) {
+    YOUR_AJAX_UPDATE_ORDER_FUNCTION();
+});</code></pre></div>
+                                    <p>
+                                        تابع YOUR_AJAX_UPDATE_ORDER_FUNCTION  باید در فاکتور فروشگاه مقدار رند شده را اضافه کند.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="step6"  class="section-block">
+                                    <h3 class="block-title">مرحله ششم</h3>
+                                    <p>
+                                        در مرحله آخر پس از پرداخت موفق میبایست API تایید تراکنش فراخوانده شود. این API دارای متد PUT میباشد و تنها پارامتر مورد نیاز آن transId میباشد.
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-markup"><div>https://www.shamdooni.org/api/rounder/v1/verify/:transId</div></code></pre>
+                                    </div><!--//code-block-->
+
+                                </div><!--//section-block-->
+    
+                            </section><!--//doc-section-->
+                            <section id="callouts-section" class="doc-section">
+                                <h2 class="section-title">نشان اعتماد شمعدونی</h2>
+                                <div class="section-block">
+                                    <p>
+                                        برای این نشان اعتماد شمعدونی رو استفاده کنید کافیست که کد موجود در پنل شمعدونی را کپی کرده و در هر جایی از سایت که میخواهید نشان نمایش داده شود کپی کنید
+                                    </p>
+                                </div>
+                            </section><!--//doc-section-->                            
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#intro-section">مقدمه</a></li>
+                                <li><a class="scrollto" href="#second-section">کلیات کارکرد</a></li>
+                                
+                                <li>
+                                    <a class="scrollto" href="#code-section">راه انداز</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#step1">مرحله اول</a></li>
+                                        <li><a class="scrollto" href="#step2">مرحله دوم</a></li>
+                                        <li><a class="scrollto" href="#step3">مرحله سوم</a></li>
+                                        <li><a class="scrollto" href="#step4">مرحله چهارم</a></li>
+                                        <li><a class="scrollto" href="#step5">مرحله پنجم</a></li>
+                                        <li><a class="scrollto" href="#step6">مرحله ششم</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li><a class="scrollto" href="#callouts-section">نشان اعتماد</a></li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" style="direction:rtl" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">ساخته شده با <i class="fa fa-heart"></i> توسط <a href="https://www.shamdooni.org/" target="_blank"></a> برای توسعه دهنده ها.</small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+
