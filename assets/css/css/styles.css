@@ -1266,16 +1266,3 @@ select {
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
 
-body {
-  font-family: 'IranianSansRegular' !important; 
-  font-weight: normal !important; 
-  font-style: normal !important; 
-}
-
-th {
-  text-align: right !important;
-}
-
-code {
-  font-family: Monospace !important;
-}
